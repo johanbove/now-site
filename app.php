@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title class="p-name">Open Productivity - Now</title>
-    <link rel="self" href="https://johanbove.info/now.php" class="u-url">
+    <link rel="self" href="https://now.johanbove.info" class="u-url">
     <style>
     body { font-family: 'Share Tech Mono', consolas, monospace; color: #47B9B7; background-color: #0D1F18; }
     /* Layout: grid */
@@ -45,7 +45,7 @@
 
     <!-- Theme -->
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="now_theme_bladerunner.css">
+    <link rel="stylesheet" href="/styles/now_theme_bladerunner.css">
 </head>
 <body>
 <?php

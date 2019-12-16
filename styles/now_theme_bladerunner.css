@@ -19,4 +19,5 @@ a:visited { opacity: 0.85; }
 
 
 /* square */
-.annotations li::marker { content: '\25A0 \a0' }
+.annotations li::marker { content: '\25A0 \a0'; }
+.annotations li::marker:hover { content: '\25A0 \a0'; color: #f64545; }
