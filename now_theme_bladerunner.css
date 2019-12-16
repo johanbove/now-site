@@ -1,0 +1,22 @@
+/* Theming: BladeRunner 2049 */
+body { font-family: 'Share Tech Mono', consolas, monospace; color: #47B9B7; background-color: #0D1F18; }
+body {
+  background-color: #0D1F18;
+  background: -moz-linear-gradient(-45deg,  rgba(9,24,21,1) 0%, rgba(95,221,223,1) 400%);
+  background: -webkit-linear-gradient(-45deg,  rgba(9,24,21,1) 0%,rgba(95,221,223,1) 400%);
+  background: linear-gradient(-45deg,  rgba(9,24,21,1) 0%,rgba(95,221,223,1) 400%);
+  background-attachment: fixed;
+}
+header, main, footer { text-shadow: 1px 0px 5px RGBA(198, 249, 247, 0.5); }
+footer, header, section { border: 1px solid #47B9B7; border-radius: 15px; }
+section:target > h2 { color: #f64545; text-shadow: 1px 0px 5px #f64545; }
+header > nav { border-top: 1px solid #47B9B7; }
+section > article > h3 { border-top: 1px solid #47B9B7; transition: all .2s }
+section > article:hover > h3 { border-top: 1px solid #f64545; color: #f64545; text-shadow: 1px 0px 5px #f64545; }
+a { color: #AF7621; text-shadow: 1px 0px 5px #AF7621; transition: all .2s }
+a:hover, a:active, a:focus { color: #f64545; text-shadow: 1px 0px 5px #f64545; }
+a:visited { opacity: 0.85; }
+
+
+/* square */
+.annotations li::marker { content: '\25A0 \a0' }

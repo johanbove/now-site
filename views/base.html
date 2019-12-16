@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {%- block head -%}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{%- block title -%}{% endblock %} - Twig</title>
+  <link rel="stylesheet" href="styles/bulma-0.4.0.css" />
+  {%- endblock -%}
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      {%- block content -%}{% endblock %}
+    </div>
+  </section>
+  <footer>
+    <div class="content has-text-centered">
+      {% block footer %}
+      <p>Made by Johan Bové in December 2019.</p>
+      {% endblock %}
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "johanbove/now",
+  "description": "Open Productivity Now",
+  "license": "proprietary",
+  "require": {
+    "twig/twig": "^3.0"
+  }
+}
