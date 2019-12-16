@@ -58,7 +58,7 @@ function render_annotations($annotations) {
  */
 function tasks_active() {
   // Read JSON file
-  $json = file_get_contents('./task-active.json');
+  $json = file_get_contents('./data/task-active.json');
 
   // Decode JSON
   $json_data = json_decode($json, true);
@@ -91,7 +91,7 @@ function tasks_active() {
  */
 function tasks_completed() {
   // Read JSON file
-  $json = file_get_contents('./task-completed.json');
+  $json = file_get_contents('./data/task-completed.json');
 
   // Decode JSON
   $json_data = json_decode($json, true);
@@ -124,7 +124,7 @@ function tasks_completed() {
  */
 function tasks_ready() {
   // Read JSON file
-  $json = file_get_contents('./task-ready.json');
+  $json = file_get_contents('./data/task-ready.json');
 
   // Decode JSON
   $json_data = json_decode($json, true);
@@ -157,7 +157,7 @@ function tasks_ready() {
  */
 function render_meta() {
   // Read JSON file
-  $json = file_get_contents('./task-meta.json');
+  $json = file_get_contents('./data/task-meta.json');
 
   // Decode JSON
   $json_data = json_decode($json, true);
@@ -169,7 +169,7 @@ function render_meta() {
  *
  */
 function render_footer() {
-  $version = 'v1.4.0';
+  $version = 'v1.4.1';
   echo '<footer>'
       . '<address>Made by <a href="https://johanbove.info" rel="me" class="p-author h-card">Johan Bové</a> in December 2019. (<em>Version ' . $version . '</em>)</address>'
       . '</footer>';
