@@ -169,7 +169,7 @@ function render_meta() {
  *
  */
 function render_footer() {
-  $version = 'v1.4.3';
+  $version = 'v1.4.4';
   echo '<footer>'
       . '<address>Made by <a href="https://johanbove.info" rel="me" class="p-author h-card">Johan Bové</a> in December 2019. (<em>Version ' . $version . '</em>)</address>'
       . '</footer>';
