@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" class="{{ classNames.html }}">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="{{ classNames.title }}">{%- block title -%}{%- endblock -%}</title>
+    {% endblock %}
+    <!-- styles -->
+    {{ include('style.html') }}
+    {{ include('theme.html') }}
+    {% block style %}
+    {% endblock %}
+    <!-- /styles -->
+</head>
+<body>
+  <header>
+    {% block header %}{% endblock %}
+    {% block meta %}{% endblock %}
+    <nav>
+      {%- block nav -%}{%- endblock -%}
+    </nav>
+  </header>
+  <main>
+    {% block main %}
+    {% endblock %}
+  </main>
+  {{ include('footer.html') }}
+</body>
+</html>

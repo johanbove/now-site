@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+
+{% block title %}Open Productivity - Now{% endblock %}
+
+{% block header %}
+<h1>Open Productivity Now</h1>
+<p>Sharing my <em>plans</em> managed in <a href="https://taskwarrior.org/">TaskWarrior</a> after getting inspired by <a href="https://noeldemartin.com/now">Noel De Martin</a>.</p>
+<p>All times are in timezone Europe/Berlin.</p>
+{% endblock %}
+
+{% block meta %}
+<section id="meta"><p>Last updated: {{ meta }}.</p></section>
+{% endblock %}
+
+{% block nav %}
+Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#closed">Closed</a>
+{% endblock %}
+
+{% block main %}
+{% if data_active is not empty %}
+<section id="active">
+  <h2>Active - currently focused on&hellip;</h2>
+  {{ data_active|raw }}
+</section>
+{% endif %}
+{% if data_ready is not empty %}
+<section id="planned">
+  <h2>Planned - planning to work on this soon&hellip;</h2>
+  {{ data_ready|raw }}
+</section>
+{% endif %}
+{% if data_completed is not empty %}
+<section id="closed">
+  <h2>Closed - Finished tasks&hellip;</h2>
+  <p>This list shows all task closed in the last month (<a href="https://taskwarrior.org/docs/durations.html">30 days</a>).</p>
+  {{ data_completed|raw }}
+</section>
+{% endif %}
+{% endblock %}

@@ -153,24 +153,14 @@ function tasks_ready() {
 }
 
 /**
- *
+ * Returns the last updated time stamp
  */
-function render_meta() {
+function get_meta() {
   // Read JSON file
   $json = file_get_contents('./data/task-meta.json');
 
   // Decode JSON
   $json_data = json_decode($json, true);
 
-  echo "<section id=\"meta\"><p>Last updated: " . render_date($json_data["updated"]) . "</p></section>";
-}
-
-/**
- *
- */
-function render_footer() {
-  $version = 'v1.4.4';
-  echo '<footer>'
-      . '<address>Made by <a href="https://johanbove.info" rel="me" class="p-author h-card">Johan Bové</a> in December 2019. (<em>Version ' . $version . '</em>)</address>'
-      . '</footer>';
+  return render_date($json_data["updated"]);
 }
