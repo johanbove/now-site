@@ -2,16 +2,10 @@
 <html lang="{{ lang }}" class="{{ classNames.html }}">
 <head>
     {% block head %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="{{ classNames.title }}">{%- block title -%}{%- endblock -%}</title>
+      <title class="{{ classNames.title }}">{%- block title -%}{%- endblock -%}</title>
+      {% embed "head.twig" %}
+      {% endembed  %}
     {% endblock %}
-    <!-- styles -->
-    {{ include('style.html') }}
-    {{ include('theme.html') }}
-    {% block style %}
-    {% endblock %}
-    <!-- /styles -->
 </head>
 <body>
   <header>
@@ -25,6 +19,6 @@
     {% block main %}
     {% endblock %}
   </main>
-  {{ include('footer.html') }}
+  {{ include('footer.twig') }}
 </body>
 </html>
