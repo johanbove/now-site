@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
-// Application logic
-require_once __DIR__ . "/now_code.inc";
-
+// Gets the data through loading json files
+require_once __DIR__ . "/get_json.inc";
+// My own filters
 require_once __DIR__ . "/TwigExtension/customFilters.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('./views/');

@@ -1,0 +1,48 @@
+{# Now Article template #}
+<article id="task-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
+  <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
+    {% if task_category == 'ACTIVE' %}
+    Working on: {{ task.project }}
+    {% elseif task_category == 'COMPLETED' %}
+    Closed: {{ task.project }}
+    {% elseif task_category == 'READY' %}
+    Planned: {{ task.project }}
+    {% endif %}
+  </h3>
+  <p class="p-summary">{{ task.description }}</p>
+  {% if task.entry or task.start or task.modified or task.end %}
+  <dl class="meta">
+    {% if task.entry %}
+    <dt>Entry</dt>
+    <dd><time class="dt-published" datetime="{{ task.entry|shortDateStamp }}">{{ task.entry|longDateStamp }}</time></dd>
+    {% endif %}
+    {% if task.end %}
+    <dt>End</dt>
+    <dd><time class="dt-published" datetime="{{ task.end|shortDateStamp }}">{{ task.end|longDateStamp }}</time></dd>
+    {% endif %}
+    {% if task.start %}
+    <dt>Start</dt>
+    <dd><time class="dt-start" datetime="{{ task.start|shortDateStamp }}">{{ task.start|longDateStamp }}</time></dd>
+    {% endif %}
+    {% if task.modified %}
+    <dt>Modified</dt>
+    <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time>
+    </dd>
+    {% endif %}
+    {% if task.annotations %}
+    <h4>Activity</h4>
+    <ol class="annotations">
+      {% for annotation in task.annotations|reverse %}
+      <li>
+        <time class="entry"
+          datetime="{{ annotation.entry|shortDateStamp }}">{{ annotation.entry|shortDateStamp }}</time>
+        <span class="text">
+          {{ annotation.description|parseLinks }}
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </dl>
+  {% endif %}
+</article>

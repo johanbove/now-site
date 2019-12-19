@@ -17,53 +17,22 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% endblock %}
 
 {% block main %}
-{% if data_active is not empty %}
+{% if data_active %}
 <section id="active">
   <h2>Active - currently focused on&hellip;</h2>
   {% for task in data_active %}
-  <article id="task-{{ task.uuid }}" class="h-entry h-event">
-    <h3 title="ID {{ task.id }}" class="p-name">Working on: {{ task.project }}</h3>
-    <p class="p-summary">{{ task.description }}</p>
-    {% if (task.entry is not empty) and (task.start is not empty) and (task.modified is not empty) %}
-    <dl class="meta">
-      {% if task.entry is not empty %}
-      <dt>Entry</dt>
-      <dd><time class="dt-published" datetime="{{ task.entry|shortDateStamp }}">{{ task.entry|longDateStamp }}</time></dd>
-      {% endif %}
-      {% if task.start is not empty %}
-      <dt>Start</dt>
-      <dd><time class="dt-start" datetime="{{ task.start|shortDateStamp }}">{{ task.start|longDateStamp }}</time></dd>
-      {% endif %}
-      {% if task.modified is not empty %}
-      <dt>Modified</dt>
-      <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time></dd>
-      {% endif %}
-      {% if (task.annotations is defined) and (task.annotations is not empty) and (task.annotations|length > 0) %}
-      <h4>Activity</h4>
-      <ol class="annotations">
-          {% for annotation in task.annotations %}
-          <li>
-            <time class="entry" datetime="{{ annotation.entry|shortDateStamp }}">{{ annotation.entry|shortDateStamp }}</time>
-            <span class="text">
-              {{ annotation.description|parseLinks }}
-            </span>
-          </li>
-          {% endfor %}
-      </ol>
-      {% endif %}
-    </dl>
-    {% endif %}
-  </article>
+  {% set task_category = 'ACTIVE' %}
+  {{ include('task_article.twig') }}
   {% endfor %}
 </section>
 {% endif %}
-{% if data_ready is not empty %}
+{% if data_ready %}
 <section id="planned">
   <h2>Planned - planning to work on this soon&hellip;</h2>
   {{ data_ready|raw }}
 </section>
 {% endif %}
-{% if data_completed is not empty %}
+{% if data_completed %}
 <section id="closed">
   <h2>Closed - Finished tasks&hellip;</h2>
   <p>This list shows all task closed in the last month (<a href="https://taskwarrior.org/docs/durations.html">30 days</a>).</p>
