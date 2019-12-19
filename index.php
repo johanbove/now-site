@@ -9,7 +9,7 @@ $loader = new \Twig\Loader\FilesystemLoader('./views/');
 
 $twig = new \Twig\Environment($loader, [
   'debug' => true,
-  // 'cache' => './compilation_cache',
+  'cache' => './compilation_cache',
   'strict_variables' => true,
   'autoescape' => false
 ]);
@@ -24,7 +24,7 @@ echo $template->render([
     'html' => 'h-feed',
     'title' => 'p-name',
   ],
-  'version' => 'v1.5.0',
+  'version' => 'v1.5.1',
   'meta' => get_meta(),
   'data_active' => tasks_active(),
   'data_ready' => tasks_ready(),
