@@ -40,7 +40,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
   <h2>Closed - Finished tasks&hellip;</h2>
   <p>This list shows all task closed in the last month (<a href="https://taskwarrior.org/docs/durations.html">30 days</a>).</p>
   {% for task in data_completed %}
-  {% set task_category = 'READY' %}
+  {% set task_category = 'CLOSED' %}
   {{ include('task_article.twig') }}
   {% endfor %}
 </section>

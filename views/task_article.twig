@@ -3,7 +3,7 @@
   <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
     {% if task_category == 'ACTIVE' %}
     Working on: {{ task.project }}
-    {% elseif task_category == 'COMPLETED' %}
+    {% elseif task_category == 'CLOSED' %}
     Closed: {{ task.project }}
     {% elseif task_category == 'READY' %}
     Planned: {{ task.project }}
