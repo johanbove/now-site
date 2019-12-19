@@ -1,16 +1,20 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
+// Application logic
+require_once __DIR__ . "/now_code.inc";
+
+require_once __DIR__ . "/TwigExtension/customFilters.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('./views/');
+
 $twig = new \Twig\Environment($loader, [
   'debug' => true,
-  'cache' => './compilation_cache',
+  // 'cache' => './compilation_cache',
   'strict_variables' => true,
   'autoescape' => false
 ]);
 
-// Application logic
-require_once __DIR__ . "/now_code.inc";
+$twig->addExtension(new Custom_Filters());
 
 $template = $twig->load('home.twig');
 

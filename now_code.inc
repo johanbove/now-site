@@ -4,7 +4,7 @@
  * Parse a string links as an HTML clickable link
  * @see <https://daringfireball.net/2010/07/improved_regex_for_matching_urls>
  */
-function parse_as_link($string) {
+function parse_as_link(string $string) {
   $pattern = "/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/";
   return preg_replace($pattern, "<a href=\"$1\">$1</a>", $string);
 }
@@ -13,7 +13,7 @@ function parse_as_link($string) {
  * Outputs give date in specific format
  * @see <https://blog.serverdensity.com/handling-timezone-conversion-with-php-datetime/>
  */
-function render_date($date, $format = 'D, j\<\s\u\p\>S<\/\s\u\p\> M Y \a\t H:i:s') {
+function render_date(string $date, string $format = 'D, j\<\s\u\p\>S<\/\s\u\p\> M Y \a\t H:i:s') {
   $userTimezone = new DateTimeZone('Europe/Berlin');
   $gmtTimezone = new DateTimeZone('GMT');
   $myDateTime  = new DateTime($date, $gmtTimezone);
@@ -27,7 +27,7 @@ function render_date($date, $format = 'D, j\<\s\u\p\>S<\/\s\u\p\> M Y \a\t H:i:s
 /**
  * Rendering Task Annotations
  */
-function render_annotations($annotations) {
+function render_annotations(array $annotations) {
   $output = '';
   if (empty($annotations)) {
     return $output;
@@ -63,27 +63,7 @@ function tasks_active() {
   // Decode JSON
   $json_data = json_decode($json, true);
 
-  $output = '';
-
-  // print_r($json_data);
-  foreach ($json_data as $taskKey => $task) {
-    $output .= '<article id="task-' . $task["uuid"] .'" class="h-entry h-event">';
-    $output .= "<h3 title=\"ID " . $task["id"] . "\" class=\"p-name\">Working on: " . $task["project"] . "</h3>";
-    $output .= "<p class=\"p-summary\">" . $task["description"]. "</p>";
-    if (!empty($task["start"]) && !empty($task["modified"])) {
-      $output .= "<dl class='meta'>";
-      $output .= "<dt>Entry</dt><dd><time class=\"dt-published\" datetime=\"" . render_date($task["entry"], "Y-m-d H:i:s") . "\">" . render_date($task["entry"]) . "</time></dd>";
-      $output .= "<dt>Start</dt><dd><time class=\"dt-start\" datetime=\"" . render_date($task["start"], "Y-m-d H:i:s") . "\">" . render_date($task["start"]) . "</time></dd>";
-      $output .= "<dt>Modified</dt><dd><time class=\"dt-updated\" datetime=\"" . render_date($task["modified"], "Y-m-d H:i:s") . "\">" . render_date($task["modified"]) . "</time></dd>";
-      $output .= "</dl>";
-    }
-    if (!empty($task["annotations"])) {
-      $output .= render_annotations($task["annotations"]);
-    }
-    $output .= "</article>";
-  }
-
-  return $output;
+  return $json_data;
 }
 
 /**
@@ -162,5 +142,5 @@ function get_meta() {
   // Decode JSON
   $json_data = json_decode($json, true);
 
-  return render_date($json_data["updated"]);
+  return $json_data;
 }
