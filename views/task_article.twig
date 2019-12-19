@@ -10,26 +10,26 @@
     {% endif %}
   </h3>
   <p class="p-summary">{{ task.description }}</p>
-  {% if task.entry or task.start or task.modified or task.end %}
+  {% if (task.entry is defined) or (task.start is defined) or (task.modified is defined) or (task.end is defined) %}
   <dl class="meta">
-    {% if task.entry %}
+    {% if task.entry is defined %}
     <dt>Entry</dt>
     <dd><time class="dt-published" datetime="{{ task.entry|shortDateStamp }}">{{ task.entry|longDateStamp }}</time></dd>
     {% endif %}
-    {% if task.end %}
+    {% if task.end is defined %}
     <dt>End</dt>
     <dd><time class="dt-published" datetime="{{ task.end|shortDateStamp }}">{{ task.end|longDateStamp }}</time></dd>
     {% endif %}
-    {% if task.start %}
+    {% if task.start is defined %}
     <dt>Start</dt>
     <dd><time class="dt-start" datetime="{{ task.start|shortDateStamp }}">{{ task.start|longDateStamp }}</time></dd>
     {% endif %}
-    {% if task.modified %}
+    {% if task.modified is defined %}
     <dt>Modified</dt>
     <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time>
     </dd>
     {% endif %}
-    {% if task.annotations %}
+    {% if (task.annotations is defined) and (task.annotations|length > 0) %}
     <h4>Activity</h4>
     <ol class="annotations">
       {% for annotation in task.annotations|reverse %}

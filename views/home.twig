@@ -29,14 +29,20 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% if data_ready %}
 <section id="planned">
   <h2>Planned - planning to work on this soon&hellip;</h2>
-  {{ data_ready|raw }}
+  {% for task in data_ready %}
+  {% set task_category = 'READY' %}
+  {{ include('task_article.twig') }}
+  {% endfor %}
 </section>
 {% endif %}
 {% if data_completed %}
 <section id="closed">
   <h2>Closed - Finished tasks&hellip;</h2>
   <p>This list shows all task closed in the last month (<a href="https://taskwarrior.org/docs/durations.html">30 days</a>).</p>
-  {{ data_completed|raw }}
+  {% for task in data_completed %}
+  {% set task_category = 'READY' %}
+  {{ include('task_article.twig') }}
+  {% endfor %}
 </section>
 {% endif %}
 {% endblock %}
