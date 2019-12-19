@@ -1,7 +1,9 @@
 <?php
-class Custom_Filters extends \Twig\Extension\AbstractExtension {
+class Custom_Filters extends \Twig\Extension\AbstractExtension
+{
 
-    public function getFilters() {
+    public function getFilters()
+    {
       return [
         /**
          * base64_encode => name of custom filter,
@@ -11,9 +13,7 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension {
         new \Twig\TwigFilter('base64_decode', array($this, 'base64_dec')),
         new \Twig\TwigFilter('parseLinks', array($this, 'parse_as_link'), ['is_safe' => ['html']]),
         new \Twig\TwigFilter('longDateStamp', array($this, 'render_date')),
-        new \Twig\TwigFilter('shortDateStamp', function ($string) {
-          return render_date($string, 'Y-m-d H:i:s');
-        }),
+        new \Twig\TwigFilter('shortDateStamp', array($this, 'render_date_short')),
       ];
     }
 
@@ -41,7 +41,8 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension {
      * Outputs give date in specific format
      * @see <https://blog.serverdensity.com/handling-timezone-conversion-with-php-datetime/>
      */
-    public function render_date(string $date, string $format = 'D, j\<\s\u\p\>S<\/\s\u\p\> M Y \a\t H:i:s') {
+    public function render_date(string $date, string $format = 'D, j\<\s\u\p\>S<\/\s\u\p\> M Y \a\t H:i:s')
+    {
       $userTimezone = new DateTimeZone('Europe/Berlin');
       $gmtTimezone = new DateTimeZone('GMT');
       $myDateTime  = new DateTime($date, $gmtTimezone);
@@ -50,6 +51,11 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension {
       $myDateTime->add($myInterval);
       $formatedTime = $myDateTime->format($format);
       return $formatedTime;
+    }
+
+    public function render_date_short(string $string)
+    {
+      return $this->render_date($string, 'Y-m-d H:i:s');
     }
 
 }
