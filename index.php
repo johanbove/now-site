@@ -24,7 +24,7 @@ echo $template->render([
     'html' => 'h-feed',
     'title' => 'p-name',
   ],
-  'version' => 'v1.5.1',
+  'version' => 'v1.5.2',
   'meta' => get_meta(),
   'data_active' => tasks_active(),
   'data_ready' => tasks_ready(),
