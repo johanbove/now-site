@@ -31,8 +31,13 @@ section > article {
   margin: 1em 0.5em;
   padding: 0 2em 1em;
   box-sizing: border-box;
+  transition: border linear .2s;
+}
+section > article:hover {
+  border-color: #f64545;
 }
 section > article h3 {
+  transition: all linear .2s;
   margin-top: 0;
 }
 section > article:hover > h3 {
