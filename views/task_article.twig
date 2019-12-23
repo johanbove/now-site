@@ -30,22 +30,22 @@
     {% endif %}
     {% if task.modified is defined %}
     <dt>Modified</dt>
-    <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time></dd>
-    {% endif %}
-    {% if (task.annotations is defined) and (task.annotations|length > 0) %}
-    <h4>Activity</h4>
-    <ol class="annotations">
-      {% for annotation in task.annotations|reverse %}
-      <li>
-        <time class="entry"
-          datetime="{{ annotation.entry|shortDateStamp }}">{{ annotation.entry|shortDateStamp }}</time>
-        <span class="text">
-          {{ annotation.description|parseLinks }}
-        </span>
-      </li>
-      {% endfor %}
-    </ol>
+    <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time>
+    </dd>
     {% endif %}
   </dl>
+  {% endif %}
+  {% if (task.annotations is defined) and (task.annotations|length > 0) %}
+  <h4>Activity</h4>
+  <ol class="annotations">
+    {% for annotation in task.annotations|reverse %}
+    <li>
+      <time class="entry" datetime="{{ annotation.entry|shortDateStamp }}">{{ annotation.entry|shortDateStamp }}</time>
+      <span class="text">
+        {{ annotation.description|parseLinks }}
+      </span>
+    </li>
+    {% endfor %}
+  </ol>
   {% endif %}
 </article>

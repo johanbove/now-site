@@ -5,7 +5,7 @@ require_once __DIR__ . "/get_json.inc";
 // My own filters
 require_once __DIR__ . "/TwigExtension/customFilters.php";
 
-$loader = new \Twig\Loader\FilesystemLoader('./views/');
+$loader = new \Twig\Loader\FilesystemLoader(['./views/', './styles']);
 
 $twig = new \Twig\Environment($loader, [
   'debug' => true,
