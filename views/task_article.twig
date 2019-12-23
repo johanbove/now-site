@@ -1,12 +1,13 @@
 {# Now Article template #}
+{% set projectName = task.project|replace({'.': ' '})  %}
 <article id="task-{{ task_category }}-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
   <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
     {% if task_category == 'ACTIVE' %}
-    Working on: {{ task.project }}
+    Working on: {{ projectName }}
     {% elseif task_category == 'CLOSED' %}
-    Closed: {{ task.project }}
+    Closed: {{ projectName }}
     {% elseif task_category == 'READY' %}
-    Planned: {{ task.project }}
+    Planned: {{ projectName }}
     {% endif %}
   </h3>
   <p class="p-summary">{{ task.description }}</p>
