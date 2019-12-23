@@ -1,5 +1,5 @@
 {# Now Article template #}
-<article id="task-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
+<article id="task-{{ task_category }}-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
   <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
     {% if task_category == 'ACTIVE' %}
     Working on: {{ task.project }}
