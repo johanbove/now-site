@@ -1,15 +1,7 @@
 {# Now Article template #}
-{% set projectName = task.project|replace({'Plans.': ''})  %}
+{% set projectName = task.project|replace({'Plans.': ''}) %}
 <article id="task-{{ task_category }}-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
-  <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
-    {% if task_category == 'ACTIVE' %}
-    Working on: {{ projectName }}
-    {% elseif task_category == 'CLOSED' %}
-    Closed: {{ projectName }}
-    {% elseif task_category == 'READY' %}
-    Planned: {{ projectName }}
-    {% endif %}
-  </h3>
+  <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">{{ projectName }}</h3>
   <p class="p-summary">{{ task.description }}</p>
   {% if (task.entry is defined) or (task.start is defined) or (task.modified is defined) or (task.end is defined) or (task.due is defined) %}
   <dl class="meta">
