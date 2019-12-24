@@ -20,7 +20,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% if data_active %}
 <section id="active">
   <h2>{{ data_active|length }} Tasks Active // currently focused on&hellip;</h2>
-  {% for task in data_active %}
+  {% for task in data_active|sortByUrgency %}
   {% set task_category = 'ACTIVE' %}
   {{ include('task_article.twig') }}
   {% endfor %}
@@ -29,7 +29,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% if data_ready %}
 <section id="planned">
   <h2>{{ data_ready|length }} Tasks Planned // planning to work on this soon&hellip;</h2>
-  {% for task in data_ready %}
+  {% for task in data_ready|sortByUrgency %}
   {% set task_category = 'READY' %}
   {{ include('task_article.twig') }}
   {% endfor %}

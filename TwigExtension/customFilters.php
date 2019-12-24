@@ -14,6 +14,7 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension
         new \Twig\TwigFilter('parseLinks', array($this, 'parse_as_link'), ['is_safe' => ['html']]),
         new \Twig\TwigFilter('longDateStamp', array($this, 'render_date')),
         new \Twig\TwigFilter('shortDateStamp', array($this, 'render_date_short')),
+        new \Twig\TwigFilter('sortByUrgency', array($this, 'sortByUrgency')),
       ];
     }
 
@@ -56,6 +57,39 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension
     public function render_date_short(string $string)
     {
       return $this->render_date($string, 'Y-m-d H:i:s');
+    }
+
+    /**
+     * @see https://stackoverflow.com/a/13792558
+     */
+    private function sort_arr_of_obj($array, $sortby, $direction='asc')
+    {
+
+      $sortedArr = array();
+      $tmp_Array = array();
+
+      // var_dump($array);
+
+      foreach ($array as $k => $v) {
+        $tmp_Array[] = $v[$sortby];
+      }
+
+      if ($direction == 'asc') {
+        asort($tmp_Array);
+      } else {
+        arsort($tmp_Array);
+      }
+
+      foreach ($tmp_Array as $k => $tmp) {
+          $sortedArr[] = $array[$k];
+      }
+
+      return $sortedArr;
+    }
+
+    public function sortByUrgency(array $array)
+    {
+      return $this->sort_arr_of_obj($array, 'urgency', 'desc');
     }
 
 }
