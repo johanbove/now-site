@@ -19,7 +19,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% block main %}
 {% if data_active %}
 <section id="active">
-  <h2>{{ data_active|length }} {% data_active|length == 1 %}Task{% else %}Tasks{% endif %} Active // currently focused on&hellip;</h2>
+  <h2>{{ data_active|length }} {% if(data_active|length == 1) %}Task{% else %}Tasks{% endif %} Active // currently focused on&hellip;</h2>
   {% for task in data_active|sortByUrgency %}
   {% set task_category = 'ACTIVE' %}
   {{ include('task_article.twig') }}
@@ -28,7 +28,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% endif %}
 {% if data_ready %}
 <section id="planned">
-  <h2>{{ data_ready|length }} {% data_active|length == 1 %}Task{% else %}Tasks{% endif %} Planned // planning to work on this soon&hellip;</h2>
+  <h2>{{ data_ready|length }} {% if (data_ready|length == 1) %}Task{% else %}Tasks{% endif %} Planned // planning to work on this soon&hellip;</h2>
   {% for task in data_ready|sortByUrgency %}
   {% set task_category = 'READY' %}
   {{ include('task_article.twig') }}
@@ -37,7 +37,7 @@ Tags: <a href="#active">Active</a> | <a href="#planned">Planned</a> | <a href="#
 {% endif %}
 {% if data_completed %}
 <section id="closed">
-  <h2>{{ data_ready|length }} {% data_active|length == 1 %}Task{% else %}Tasks{% endif %} Closed // Finished tasks&hellip;</h2>
+  <h2>{{ data_completed|length }} {% if (data_completed|length == 1) %}Task{% else %}Tasks{% endif %} Closed // Finished tasks&hellip;</h2>
   <p>This list shows all task closed in the last month (<a href="https://taskwarrior.org/docs/durations.html">30 days</a>).</p>
   {% for task in data_completed %}
   {% set task_category = 'CLOSED' %}
