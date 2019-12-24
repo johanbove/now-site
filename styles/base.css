@@ -81,12 +81,8 @@ section {
   justify-content: space-between;
 }
 
-section>h2 {
-  flex: 0 0 100%;
-  margin: -.5em;
-  padding: 1em;
-}
-
+section>h1,
+section>h2,
 section>p {
   flex: 0 0 100%;
   margin: -.5em;
