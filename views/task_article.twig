@@ -1,5 +1,5 @@
 {# Now Article template #}
-{% set projectName = task.project|replace({'.': ' '})  %}
+{% set projectName = task.project|replace({'Plans.': ''})  %}
 <article id="task-{{ task_category }}-{{ task.uuid }}" class="h-entry h-event category-{{ task_category }}">
   <h3 title="ID {{ task.id }} UUID: {{ task.uuid }}" class="p-name">
     {% if task_category == 'ACTIVE' %}
@@ -34,10 +34,15 @@
     <dd><time class="dt-updated" datetime="{{ task.modified|shortDateStamp }}">{{ task.modified|longDateStamp }}</time>
     </dd>
     {% endif %}
+    {% if task.urgency is defined %}
+    <dt>Urgency</dt>
+    <dd>{{ task.urgency }}
+    </dd>
+    {% endif %}
   </dl>
   {% endif %}
   {% if (task.annotations is defined) and (task.annotations|length > 0) %}
-  <h4>Activity</h4>
+  <h4>Activity ({{ task.annotations|length }} {% if (task.annotations|length == 1) %}entry{% else %}entries{% endif %})</h4>
   <ol class="annotations">
     {% for annotation in task.annotations|reverse %}
     <li>
