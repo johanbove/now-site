@@ -34,7 +34,7 @@
   </dl>
   {% endif %}
   {% if (task.annotations is defined) and (task.annotations|length > 0) %}
-  <h4>Activity ({{ task.annotations|length }} {% if (task.annotations|length == 1) %}entry{% else %}entries{% endif %})</h4>
+  <h4>{{ task.annotations|length }} {% if (task.annotations|length == 1) %}Activity{% else %}Activities{% endif %})</h4>
   <ol class="annotations">
     {% for annotation in task.annotations|reverse %}
     <li>
