@@ -74,6 +74,19 @@ header>nav {
   display: block;
 }
 
+.annotations .text {
+  display: block;
+  position: relative;
+}
+
+.annotations .text a {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30vw;
+  white-space: nowrap;
+}
+
 section {
   margin: 3em 0;
   display: flex;
