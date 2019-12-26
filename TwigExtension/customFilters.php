@@ -35,7 +35,7 @@ class Custom_Filters extends \Twig\Extension\AbstractExtension
     public function parse_as_link(string $string)
     {
       $pattern = "/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/";
-      return preg_replace($pattern, "<a href=\"$1\">$1</a>", $string);
+      return preg_replace($pattern, "<a href=\"$1\" title=\"$1\" rel=\"noopener nofollow\">$1</a>", $string);
     }
 
     /**
