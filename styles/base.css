@@ -83,8 +83,26 @@ header>nav {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 30vw;
+  max-width: 200px;
   white-space: nowrap;
+}
+
+@media (min-width: 400px) {
+  .annotations .text a {
+    max-width: 265px;
+  }
+}
+
+@media (min-width: 480px) {
+  .annotations .text a {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 560px) {
+  .annotations .text a {
+    max-width: 30vw;
+  }
 }
 
 section {
