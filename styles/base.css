@@ -121,7 +121,7 @@ section>p {
 }
 
 section>article {
-  flex: 1;
+  flex: 1 1 200px;
   display: flex;
   flex-direction: column;
 }
