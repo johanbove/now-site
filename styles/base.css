@@ -81,10 +81,6 @@ header>nav {
 
 .annotations .text a {
   display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-  white-space: nowrap;
 }
 
 @media (min-width: 400px) {
