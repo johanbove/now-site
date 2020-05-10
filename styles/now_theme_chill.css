@@ -63,7 +63,7 @@ body {
   }
 }
 
-nav,
+header > nav,
 #meta {
   padding: 0.5rem;
 }
