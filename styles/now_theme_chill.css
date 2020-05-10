@@ -62,3 +62,8 @@ body {
     opacity: 1;
   }
 }
+
+nav,
+#meta {
+  padding: 0.5rem;
+}
