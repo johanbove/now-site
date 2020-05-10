@@ -1,0 +1,64 @@
+/* Inspired by Zach and Angelica's "chill" page
+   <https://coolguy.website/chill/>
+*/
+body {
+  font-family: 'Share Tech Mono', consolas, monospace;
+  color:  #0D1F18;
+  background-color: #47B9B7;
+}
+body {
+  background: linear-gradient(-45deg, #66ccff, #99ccff, #ccccff, #99ccff, #99ffff, #99ffcc, #66ffcc, #66cccc);
+       background-size: 400% 400%;
+       -webkit-animation: Gradient 40s linear infinite;
+       -moz-animation: Gradient 40s linear infinite;
+       animation: Gradient 40s linear infinite;
+       /* The animation for the background color was inspired by https://e-v-e.hashbase.io/ */
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeinout {
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
