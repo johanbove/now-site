@@ -17,5 +17,6 @@ header > nav,
 }
 
 section > article {
-  flex: 2 2 33%;
+  flex: 2 2 30%;
+  margin: 0 1rem
 }
