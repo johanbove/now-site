@@ -2,6 +2,7 @@ body {
   font-family: 'Share Tech Mono', consolas, monospace;
   color: #47B9B7;
   background-color: #0D1F18;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.75);
 }
 
 /* Layout: grid */
